@@ -1,0 +1,29 @@
+{% extends "learning_logs/base.html" %}
+<!--没有用bootstrap3库函数，所以不需要load-->
+
+{% block header %}
+  <h1>Topics</h1>
+{% endblock header %}
+
+{% block content %}
+  <p>topics</p>
+  <ul>
+    {% for topic in topics %}
+      <li>
+        <h3>
+          <a href='{% url "learning_logs:topic" topic.id %}'>{{topic}}</a>
+        </h3>
+      </li>
+    {% empty %}
+      <li>No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+<h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic:</a></h3>
+{% endblock content %}
+     
+        
+
+
+
+
+
