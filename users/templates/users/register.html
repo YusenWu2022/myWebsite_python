@@ -1,0 +1,13 @@
+{% extends 'learning_logs/base.html' %}
+{% block content %}
+
+  <form method='post' action='{% url "users:register" %}'>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button name='submit'>register</button>
+    <input type='hidden' name='next' value='{% url "learning_logs:index" %}'/>
+  <!--默认界面:主页,输入东西-->
+  <!--注意对齐！！对这个而言，是属于form表单的一部分，需要空行-->
+  </form>
+{% endblock content %}
